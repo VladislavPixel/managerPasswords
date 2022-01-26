@@ -16,14 +16,17 @@ const FormComponent = ({ config, initialState, onSubmit, children, classesForm }
 		})
 	}
 	const handlerSubmit = (event) => {
+		console.log("lthyek")
 		event.preventDefault()
 		const isValid = validation()
 		if (!isValid) {
 			onSubmit(state)
 		}
 	}
+	const isNoActivBtn = Object.keys(error).length > 0
 	const newChildren = React.Children.map(children, (child) => {
 		let configChildren
+		console.log(child)
 		if (typeof child.type === "function") {
 			configChildren = {
 				...child.props,
@@ -34,8 +37,10 @@ const FormComponent = ({ config, initialState, onSubmit, children, classesForm }
 		}
 		if (child.type === "button") {
 			if (child.props.type === "submit" || child.props.type === undefined) {
+				const newChildProps = { ...child.props, className: child.props.className + (isNoActivBtn ? " active" : "") }
 				configChildren = {
-					...child.props
+					...newChildProps,
+					disabled: isNoActivBtn,
 				}
 			}
 		}
@@ -58,7 +63,8 @@ FormComponent.propTypes = {
 		PropTypes.arrayOf(PropTypes.node),
 		PropTypes.node
 	]),
-	onSubmit: PropTypes.func.isRequired
+	onSubmit: PropTypes.func.isRequired,
+	classesForm: PropTypes.string.isRequired
 }
 
 export default FormComponent
