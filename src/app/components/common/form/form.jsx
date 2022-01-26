@@ -26,7 +26,6 @@ const FormComponent = ({ config, initialState, onSubmit, children, classesForm }
 	const isNoActivBtn = Object.keys(error).length > 0
 	const newChildren = React.Children.map(children, (child) => {
 		let configChildren
-		console.log(child)
 		if (typeof child.type === "function") {
 			configChildren = {
 				...child.props,
