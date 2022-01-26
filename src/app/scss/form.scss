@@ -1,0 +1,43 @@
+.form{
+	&__text-field{
+		margin-bottom: 20px;
+		label{
+			display: inline-block;
+			font-size: 20px;
+			margin-bottom: 10px;
+			font-weight: 600;
+			color: #306291;
+			cursor: pointer;
+		}
+	}
+	&__line-input{
+		input{
+			font-size: 18px;
+			padding: 5px 10px;
+			width: 100%;
+			border: 1px solid #306291;
+			border-radius: 4px;
+		}
+	}
+	&__error-field{
+		margin-top: 7px;
+		color: red;
+		font-size: 15px;
+	}
+	&__btn{
+		width: 100%;
+		text-align: center;
+		background-color: #306291;
+		transition: all 0.5s ease 0s;
+		color: #fff;
+		font-size: 17px;
+		padding: 10px;
+		border-radius: 4px;
+		@media(min-width: 992px) {
+			&:hover{
+				background-color: #21486d;
+				transform: scale(0.9);
+			}
+		}
+	}
+}
