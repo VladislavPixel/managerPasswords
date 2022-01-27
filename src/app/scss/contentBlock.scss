@@ -1,3 +1,41 @@
 .content-block{
 	padding-top: 180px;
+	&__create-table-wrap{
+		padding: 0px 20px 40px 20px;
+	}
+}
+
+.wrap-table-create{
+	display: flex;
+	flex-direction: column;
+	&__line{
+		display: flex;
+		flex: 0 1 100px;
+		transition: all 0.3s ease 0s;
+		&:nth-child(even){
+			background: rgb(146, 146, 146);
+			@media(min-width: 992px) {
+				&:hover{
+					background: rgb(170, 170, 170);
+				}
+			}
+		}
+		&:nth-child(odd){
+			background: rgb(190, 190, 190);
+			@media(min-width: 992px) {
+				&:hover{
+					background: rgb(214, 214, 214);
+				}
+			}
+		}
+	}
+	&__column{
+		flex: 0 1 20%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__text{
+		font-size: 17px;
+	}
 }

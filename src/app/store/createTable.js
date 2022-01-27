@@ -27,13 +27,13 @@ const createTableSlice = createSlice({
 
 const { actions, reducer: createTableReducer } = createTableSlice
 const { createTableRequested, createTableRecived, createTableRequestField } = actions
+
 // Actions
 export function fetchAllCreateTableData() {
 	return async (dispatch) => {
 		dispatch(createTableRequested())
 		try {
 			const data = await globalApi.fetchAllCreate()
-			console.log(data, "data")
 			dispatch(createTableRecived(data))
 		} catch (error) {
 			dispatch(createTableRequestField(error.message))
@@ -45,6 +45,11 @@ export function fetchAllCreateTableData() {
 export function getStatusLoadingCreateTable() {
 	return (state) => {
 		return state.createTable.isLoading
+	}
+}
+export function getCreateTableData() {
+	return (state) => {
+		return state.createTable.entities
 	}
 }
 
