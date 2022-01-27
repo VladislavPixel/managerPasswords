@@ -8,14 +8,14 @@ const createTableUsers = [
 	{_id: "uu", name: "Валерий", surName: "Панютин", password: "итьбьб435", login: "valera345"}
 ]
 
-const promise = new Promise((resolve, reject) => {
+const promiseCreateTable = new Promise((resolve, reject) => {
 	setTimeout(() => {
 		resolve(createTableUsers)
 	}, 1000)
 })
 
 function getCreateUsersData() {
-	return promise
+	return promiseCreateTable
 }
 
 export default getCreateUsersData

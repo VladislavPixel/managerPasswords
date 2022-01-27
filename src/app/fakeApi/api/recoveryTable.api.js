@@ -8,10 +8,14 @@ const recoveryTableUsers = [
 	{_id: "7u", name: "Вячеслав", surName: "Чекрыжов", password: ",m.57", login: "slava790"}
 ]
 
-function getRecoveryUsersData() {
+const promiseRecovery = new Promise((resolve, reject) => {
 	setTimeout(() => {
-		return recoveryTableUsers
+		resolve(recoveryTableUsers)
 	}, 2000)
+})
+
+function getRecoveryUsersData() {
+	return promiseRecovery
 }
 
 export default getRecoveryUsersData

@@ -1,15 +1,22 @@
-@import "null";
-@import "spinner";
-@import "header";
-@import "contentBlock";
-@import "footer";
-@import "loginBlock";
-@import "form";
-
-
+.wrapper{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
 // Стилистика вспомогательных классов ::::::::::::::::::::::::::::::::::::::::::::::::::::
 ._container{
 	max-width: 1130px;
 	margin: 0 auto;
 	padding: 0px 15px;
 }
+
+
+@import "null";
+@import "spinner";
+@import "header";
+@import "contentBlock";
+@import "footer";
+@import "loginBlock";
+@import "noResultFilterMessage";
+@import "form";
