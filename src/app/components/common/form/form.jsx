@@ -16,7 +16,6 @@ const FormComponent = ({ config, initialState, onSubmit, children, classesForm }
 		})
 	}
 	const handlerSubmit = (event) => {
-		console.log("lthyek")
 		event.preventDefault()
 		const isValid = validation()
 		if (!isValid) {

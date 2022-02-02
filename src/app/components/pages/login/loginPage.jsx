@@ -2,8 +2,13 @@ import React, { useState } from "react"
 import Logo from "../../../images/header/logo.png"
 import FormComponent from "../../common/form"
 import { TextField } from "../../common/form"
+import { useDispatch, useSelector } from "react-redux"
+import { signUp } from "../../../store/user"
+import { getUserError } from "../../../store/user"
 
 const LoginPage = () => {
+	const dispatch = useDispatch()
+	const errorUser = useSelector(getUserError())
 	const [initialState] = useState({
 		name: "",
 		password: ""
@@ -17,7 +22,7 @@ const LoginPage = () => {
 		}
 	}
 	const handlerSubmit = (data) => {
-		console.log("Отправка данных: ", data)
+		dispatch(signUp(data))
 	}
 	return (
 		<main className="login-block">
@@ -25,6 +30,7 @@ const LoginPage = () => {
 				<div className="login-block__image">
 					<img src={Logo} alt="Герб Московского университета МВД РФ им. В.Я. Кикотя" />
 				</div>
+				{errorUser && <div className="login-block__error">{errorUser}</div>}
 				<FormComponent config={configError} classesForm="login-block__form" initialState={initialState} onSubmit={handlerSubmit}>
 					<TextField
 						label="Имя:"

@@ -12,15 +12,12 @@ const Header = () => {
 				</div>
 				<div className="header__content content-header">
 					<div className="content-header__logo">
-						<NavLink to="/">
+						<NavLink to="/createTable">
 							<img className="content-header__img" src={logo} alt="Герб Московского университета МВД России имени В.Я. Кикотя" />
 						</NavLink>
 					</div>
 					<nav className="content-header__menu menu-header">
 						<ul className="menu-header__list">
-							<li>
-								<NavLink to="/">Логин</NavLink>
-							</li>
 							<li>
 								<NavLink to="/recoveryTable">Таблица восстановления</NavLink>
 							</li>

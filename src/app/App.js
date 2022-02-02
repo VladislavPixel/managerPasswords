@@ -4,16 +4,26 @@ import CreateTable from "./layots/createTable"
 import RecoveryTable from "./layots/recoveryTable"
 import NotFound from "./layots/notFound"
 import { Switch, Route, Redirect } from "react-router-dom"
+import ProtectedRoute from "./components/common/protectedRoute"
+import GlobalCheckAuth from "./components/HOC/globalCheckAuth"
+import { useSelector } from "react-redux"
+import { getStatusAuth } from "./store/user"
 
 const App = () => {
+	const isAuth = useSelector(getStatusAuth())
 	return (
-		<Switch>
-			<Route path="/recoveryTable" component={RecoveryTable} />
-			<Route path="/createTable" component={CreateTable} />
-			<Route path="/notFound" component={NotFound} />
-			<Route path="/" exact component={Login} />
-			<Redirect to="/notFound" />
-		</Switch>
+		<GlobalCheckAuth>
+			<Switch>
+				<ProtectedRoute path="/recoveryTable" component={RecoveryTable} />
+				<ProtectedRoute path="/createTable" component={CreateTable} />
+				<Route path="/" exact render={(props) => {
+					if (isAuth) { props.history.goBack() }
+					return <Login />
+				}} />
+				<Route path="/notFound" component={NotFound} />
+				<Redirect to="/notFound" />
+			</Switch>
+		</GlobalCheckAuth>
 	)
 }
 
