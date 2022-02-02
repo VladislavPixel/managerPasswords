@@ -8,10 +8,10 @@ import { Switch, Route, Redirect } from "react-router-dom"
 const App = () => {
 	return (
 		<Switch>
-			<Route path="/login" component={Login} />
 			<Route path="/recoveryTable" component={RecoveryTable} />
 			<Route path="/createTable" component={CreateTable} />
 			<Route path="/notFound" component={NotFound} />
+			<Route path="/" exact component={Login} />
 			<Redirect to="/notFound" />
 		</Switch>
 	)

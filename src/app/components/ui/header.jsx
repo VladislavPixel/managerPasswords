@@ -19,7 +19,7 @@ const Header = () => {
 					<nav className="content-header__menu menu-header">
 						<ul className="menu-header__list">
 							<li>
-								<NavLink to="/login">Логин</NavLink>
+								<NavLink to="/">Логин</NavLink>
 							</li>
 							<li>
 								<NavLink to="/recoveryTable">Таблица восстановления</NavLink>

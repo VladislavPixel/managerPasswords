@@ -15,7 +15,7 @@ const CreateTableList = () => {
 	}))
 	return (
 		<section className="content-block__create-table-wrap wrap-table-create">
-			{newCreateTableData.length > 0 &&
+			{(newCreateTableData.length > 0 &&
 				newCreateTableData.map(people => {
 					return (
 						<div key={people._id} className="wrap-table-create__line">
@@ -28,7 +28,7 @@ const CreateTableList = () => {
 							})}
 						</div>
 					)
-				}) || <NoResultFilterMessage offer="Фильтр не дал результатов... Попробуйте вводить другое значение." />
+				})) || <NoResultFilterMessage offer="Фильтр не дал результатов... Попробуйте вводить другое значение." />
 			}
 		</section>
 	)
