@@ -35,8 +35,8 @@ export function fetchAllRecoveryTableData() {
 		try {
 			const data = await globalApi.fetchAllRecovery()
 			dispatch(recoveryTableRequestRecived(data))
-		} catch (error) {
-			dispatch(recoveryTableRequestField(error.message))
+		} catch (err) {
+			dispatch(recoveryTableRequestField(err.message))
 		}
 	}
 }
@@ -50,6 +50,11 @@ export function getStatusLoadingRecoveryTable() {
 export function getRecoveryTableData() {
 	return (state) => {
 		return state.recoveryTable.entities
+	}
+}
+export function getRecoveryTableUserById(id) {
+	return (state) => {
+		return state.recoveryTable.entities.find(people => people.Id === id)
 	}
 }
 

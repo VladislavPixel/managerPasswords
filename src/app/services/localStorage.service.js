@@ -16,10 +16,15 @@ function getRoleUser() {
 	return JSON.parse(localStorage.getItem(ROLE_USER))
 }
 
+function getAccessToken() {
+	return localStorage.getItem(JWT_ACCESS_KEY)
+}
+
 const localStorageService = {
 	set: setToken,
 	isToken: checkJWTToken,
-	getRole: getRoleUser
+	getRole: getRoleUser,
+	getToken: getAccessToken
 }
 
 export default localStorageService

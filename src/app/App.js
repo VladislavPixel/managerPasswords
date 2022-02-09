@@ -15,9 +15,9 @@ const App = () => {
 		<GlobalCheckAuth>
 			<Switch>
 				<ProtectedRoute path="/recoveryTable" component={RecoveryTable} />
-				<ProtectedRoute path="/createTable" component={CreateTable} />
-				<Route path="/" exact render={(props) => {
-					if (isAuth) { props.history.goBack() }
+				<ProtectedRoute path="/createTable/:userID?" component={CreateTable} />
+				<Route path="/" exact render={() => {
+					if (isAuth) return <Redirect to="/createTable" />
 					return <Login />
 				}} />
 				<Route path="/notFound" component={NotFound} />

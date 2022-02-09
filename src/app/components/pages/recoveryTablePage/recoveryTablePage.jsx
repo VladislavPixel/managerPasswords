@@ -13,12 +13,12 @@ const RecoveryTablePage = () => {
 		if (statusLoadingRecoveryTable) {
 			dispatch(fetchAllRecoveryTableData())
 		}
-	}, [])
+	}, [dispatch, statusLoadingRecoveryTable])
 	return (
 		<React.Fragment>
 			<Header />
 			<main className="content-block">
-				{statusLoadingRecoveryTable && <Spinner /> ||
+				{(statusLoadingRecoveryTable && <Spinner />) ||
 					<RecoveryTableList />
 				}
 			</main>

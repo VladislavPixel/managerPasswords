@@ -13,7 +13,7 @@ const CreateTablePage = () => {
 		if (statusLoading) {
 			dispatch(fetchAllCreateTableData())
 		}
-	}, [])
+	}, [dispatch, statusLoading])
 	return (
 		<React.Fragment>
 			<Header />

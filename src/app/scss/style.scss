@@ -6,7 +6,7 @@
 }
 // Стилистика вспомогательных классов ::::::::::::::::::::::::::::::::::::::::::::::::::::
 ._container{
-	max-width: 1130px;
+	width: 1130px;
 	margin: 0 auto;
 	padding: 0px 15px;
 }
@@ -16,6 +16,8 @@
 @import "spinner";
 @import "header";
 @import "contentBlock";
+@import "printPage";
+@import "headerTable";
 @import "footer";
 @import "loginBlock";
 @import "noResultFilterMessage";

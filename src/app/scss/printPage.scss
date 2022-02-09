@@ -1,0 +1,158 @@
+.print-container{
+	font-size: 18px;
+	width: 1000px;
+	margin: 0 auto;
+	padding: 30px 15px 50px 15px;
+	&__button-block{
+
+	}
+	&__button{
+		font-size: 18px;
+		padding: 15px;
+		background: #306291;
+		border-radius: 4px;
+		color: #fff;
+		transition: all 0.4s ease 0s;
+		margin-bottom: 20px;
+		&:first-child{
+			margin-right: 10px;
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				transform: scale(0.9);
+				background: #255079;
+			}
+		}
+		&_print{
+			background: green;
+			@media(min-width: 992px) {
+				&:hover{
+					transform: scale(0.9);
+					background: rgb(0, 77, 0);
+				}
+			}
+		}
+	}
+	&__status-doc{
+		font-style: italic;
+		text-align: right;
+		margin-bottom: 15px;
+	}
+	&__title{
+		display: flex;
+		justify-content: center;
+		line-height: 115%;
+		margin-bottom: 20px;
+		p{
+			font-weight: 900;
+			flex: 0 1 700px;
+			text-align: center;
+		}
+	}
+	&__table-data{
+		margin-bottom: 80px;
+	}
+	&__paragraph-block{
+		p{
+			line-height: 120%;
+			text-align: justify;
+			margin-bottom: 15px;
+			text-indent: 50px;
+			span{
+				text-decoration: underline;
+			}
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+	&__flag{
+		display: flex;
+		justify-content: space-between;
+		margin-top: 60px;
+		span{
+			&:first-child,
+			&:last-child{
+				flex: 1 0 auto;
+				height: 9px;
+				border-bottom: 1px dashed black;
+			}
+		}
+	}
+	&__memo{
+		margin: 20px 0px 50px 0px;
+	}
+	&__forbidden{
+		margin-bottom: 20px;
+	}
+}
+
+.data-table{
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black;
+	&__line{
+		display: flex;
+		border-bottom: 1px solid black;
+		&:last-child{
+			border-bottom: 0;
+		}
+	}
+	&__column{
+		flex: 0 1 20%;
+		text-align: center;
+		padding: 10px 20px;
+		border-right: 1px solid black;
+		&:last-child{
+			border: 0;
+		}
+	}
+}
+
+.memo{
+	display: flex;
+	flex-direction: column;
+	&__title{
+		align-self: center;
+		text-transform: uppercase;
+		text-align: center;
+		font-weight: 900;
+		max-width: 600px;
+		margin-bottom: 20px;
+		font-size: 23px;
+	}
+	p{
+		margin-bottom: 15px;
+		line-height: 120%;
+		text-indent: 50px;
+		text-align: justify;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+}
+
+.forbidden{
+	&__head{
+		margin-bottom: 25px;
+		text-indent: 50px;
+	}
+	&__list{
+		li{
+			text-indent: 50px;
+			margin-bottom: 15px;
+			line-height: 120%;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.info-questions{
+	p{
+		text-align: justify;
+		text-indent: 50px;
+		line-height: 120%;
+	}
+}
