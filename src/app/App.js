@@ -14,7 +14,7 @@ const App = () => {
 	return (
 		<GlobalCheckAuth>
 			<Switch>
-				<ProtectedRoute path="/recoveryTable" component={RecoveryTable} />
+				<ProtectedRoute path="/recoveryTable/:userID?" component={RecoveryTable} />
 				<ProtectedRoute path="/createTable/:userID?" component={CreateTable} />
 				<Route path="/" exact render={() => {
 					if (isAuth) return <Redirect to="/createTable" />

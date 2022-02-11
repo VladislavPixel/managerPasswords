@@ -10,17 +10,25 @@ const searchSlice = createSlice({
 	reducers: {
 		updatedValueSearch(state, action) {
 			state.value = action.payload
+		},
+		resetValueSearch(state) {
+			state.value = ""
 		}
 	}
 })
 
 const { actions, reducer: searchReducer } = searchSlice
-const { updatedValueSearch } = actions
+const { updatedValueSearch, resetValueSearch } = actions
 
 // Actions
 export function updateValueSearch(newValue) {
 	return (dispatch) => {
 		dispatch(updatedValueSearch(newValue))
+	}
+}
+export function resetSearch() {
+	return (dispatch) => {
+		dispatch(resetValueSearch())
 	}
 }
 

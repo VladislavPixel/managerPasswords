@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import globalApi from "../fakeApi"
+import recoveryTableService from "../services/recoveryTable.service"
 
 const initialState = {
 	entities: [],
@@ -14,29 +14,63 @@ const recoveryTableSlice = createSlice({
 		recoveryTableRequested(state) {
 			state.isLoading = true
 		},
-		recoveryTableRequestRecived(state, action) {
+		recoveryTableRecived(state, action) {
 			state.entities = action.payload
 			state.isLoading = false
 		},
 		recoveryTableRequestField(state, action) {
 			state.error = action.payload
 			state.isLoading = false
+		},
+		updateUserRecoveryTableRequested(state) {
+			state.error = null
+		},
+		updateUserRecoveryTableRequestField(state, action) {
+			state.error = action.payload
+		},
+		updateUserRecoveryTableRecived(state, action) {
+			const newArray = [...state.entities]
+			const indexEl = newArray.findIndex(item => item.Id === action.payload.Id)
+			newArray[indexEl] = { ...newArray[indexEl], ...action.payload }
+			state.entities = newArray
 		}
 	}
 })
 
 const { actions, reducer: recoveryTableReducer } = recoveryTableSlice
-const { recoveryTableRequested, recoveryTableRequestRecived, recoveryTableRequestField } = actions
+const {
+	recoveryTableRequested,
+	updateUserRecoveryTableRequested,
+	updateUserRecoveryTableRequestField,
+	recoveryTableRecived,
+	recoveryTableRequestField,
+	updateUserRecoveryTableRecived
+} = actions
 
 // Actions
 export function fetchAllRecoveryTableData() {
 	return async (dispatch) => {
 		dispatch(recoveryTableRequested())
 		try {
-			const data = await globalApi.fetchAllRecovery()
-			dispatch(recoveryTableRequestRecived(data))
+			const data = await recoveryTableService.fetchAllRecoveryTable()
+			dispatch(recoveryTableRecived(data))
 		} catch (err) {
 			dispatch(recoveryTableRequestField(err.message))
+		}
+	}
+}
+export function updateCompleteStatusUserRecoveryTable(payload) {
+	return async (dispatch) => {
+		dispatch(updateUserRecoveryTableRequested())
+		payload.Complete = "true"
+		try {
+			const data = await recoveryTableService.updateStatusComplete(payload)
+			if (data === null) {
+				delete payload.table
+				dispatch(updateUserRecoveryTableRecived(payload))
+			}
+		} catch (err) {
+			dispatch(updateUserRecoveryTableRequestField())
 		}
 	}
 }

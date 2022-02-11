@@ -24,9 +24,7 @@ const createTableSlice = createSlice({
 		},
 		updateUserCreateTableRecived (state, action) {
 			const newArray = [...state.entities]
-			const indexEl = newArray.findIndex(item => {
-				return item.Id === action.payload.Id
-			})
+			const indexEl = newArray.findIndex(item => item.Id === action.payload.Id)
 			newArray[indexEl] = { ...newArray[indexEl], ...action.payload }
 			state.entities = newArray
 		},
@@ -64,6 +62,7 @@ export function fetchAllCreateTableData() {
 export function updateCompleteStatusUserCreateTable(payload) {
 	return async (dispatch) => {
 		dispatch(updateUserCreateTableRequested())
+		payload.Complete = "true"
 		try {
 			const data = await createTableService.updateStatusComplete(payload)
 			if (data === null) {

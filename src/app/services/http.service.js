@@ -1,8 +1,9 @@
 import axios from "axios"
+import config from "../../config.json"
 import localStorageService from "./localStorage.service"
 
 const http = axios.create({
-	baseURL: "http://localhost:8080/"
+	baseURL: config.baseEndPoint
 })
 
 http.interceptors.request.use(function (config) {

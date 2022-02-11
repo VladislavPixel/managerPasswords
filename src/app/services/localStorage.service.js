@@ -20,11 +20,17 @@ function getAccessToken() {
 	return localStorage.getItem(JWT_ACCESS_KEY)
 }
 
+function removeLocalStorage() {
+	localStorage.removeItem(ROLE_USER)
+	localStorage.removeItem(JWT_ACCESS_KEY)
+}
+
 const localStorageService = {
 	set: setToken,
 	isToken: checkJWTToken,
 	getRole: getRoleUser,
-	getToken: getAccessToken
+	getToken: getAccessToken,
+	remove: removeLocalStorage
 }
 
 export default localStorageService

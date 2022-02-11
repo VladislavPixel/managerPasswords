@@ -3,9 +3,6 @@
 	width: 1000px;
 	margin: 0 auto;
 	padding: 30px 15px 50px 15px;
-	&__button-block{
-
-	}
 	&__button{
 		font-size: 18px;
 		padding: 15px;
@@ -154,5 +151,11 @@
 		text-align: justify;
 		text-indent: 50px;
 		line-height: 120%;
+	}
+}
+
+@media print {
+	.print-container__button-block{
+		display: none;
 	}
 }

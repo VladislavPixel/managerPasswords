@@ -26,6 +26,25 @@
 			}
 		}
 	}
+	&__log-out-container{
+		background: #306291;
+		border-radius: 0px 0px 10px 30px;
+		padding: 15px;
+		width: 150px;
+		position: absolute;
+		top: 100%;
+		right: 10%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		button{
+			font-size: 19px;
+			font-weight: 600;
+			background: transparent;
+			color: #ffd23e;
+		}
+	}
 }
 
 .content-header{

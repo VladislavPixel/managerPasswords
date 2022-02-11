@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 
 const CreateTable = () => {
 	const { userID } = useParams()
-	return (userID ? <PrintPage /> : <CreateTablePage />)
+	return userID ? <PrintPage /> : <CreateTablePage />
 }
 
 export default CreateTable

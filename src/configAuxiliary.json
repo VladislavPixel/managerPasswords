@@ -11,7 +11,19 @@
 		"Date": "Дата",
 		"Login": "Логин",
 		"TmpPassword": "Вр. пароль",
-		"Status": "Статус",
+		"Complete": "Статус",
+		"Id": ""
+	},
+	"headerTableAdminRecoveryTable": {
+		"LastName": "Фамилия",
+		"Name": "Имя",
+		"Surname": "Отчество",
+		"PlaceOfWork": "Место работы",
+		"Position": "Должность",
+		"Date": "Дата",
+		"Login": "Логин",
+		"TmpPassword": "Вр. пароль",
+		"Complete": "Статус",
 		"Id": ""
 	},
 	"headerTableUser": {
@@ -19,7 +31,7 @@
 		"Name": "Имя",
 		"Surname": "Отчество",
 		"Position": "Должность",
-		"Status": "Статус",
+		"Complete": "Статус",
 		"Id": ""
 	},
 	"memoParagraphs": [
@@ -40,5 +52,12 @@
 		"Отчество",
 		"Логин СУДИС",
 		"Временный пароль"
+	],
+	"bodyPrintTable": [
+		"LastName",
+		"Name",
+		"Surname",
+		"Login",
+		"TmpPassword"
 	]
 }

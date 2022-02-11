@@ -1,11 +1,11 @@
 import httpService from "./http.service"
 import { END_POINT_UPDATE_COMPLETE } from "../../variables"
 
-const END_POINT_CREATE_TABLE = "admin/create"
+const END_POINT_RECOVERY_TABLE = "admin/recovery"
 
-const createTableService = {
-	fetchAllCreateTable: async () => {
-		const { data } = await httpService.get(END_POINT_CREATE_TABLE)
+const recoveryTableService = {
+	fetchAllRecoveryTable: async () => {
+		const { data } = await httpService.get(END_POINT_RECOVERY_TABLE)
 		return data
 	},
 	updateStatusComplete: async (payload) => {
@@ -14,4 +14,4 @@ const createTableService = {
 	}
 }
 
-export default createTableService
+export default recoveryTableService

@@ -34,15 +34,26 @@ const userSlice = createSlice({
 		},
 		userRemoveLoader(state) {
 			state.isLoading = false
+		},
+		userLogOut(state) {
+			state.isAuth = false
+			state.isAdmin = null
+			state.error = null
+			state.isLoading = true
 		}
 	}
 })
 
 const { actions, reducer: userReducer } = userSlice
-const { userAuthRequested, userAdditionalInstal, userAuthRecived, userAuthRequestField } = actions
+const { userAuthRequested, userLogOut, userAdditionalInstal, userAuthRecived, userAuthRequestField } = actions
 
 // Actions
-export function signUp(dataLoginForm) {
+export function logOut() {
+	return (dispatch) => {
+		dispatch(userLogOut())
+	}
+}
+export function signInWithNamePassword(dataLoginForm) {
 	return async (dispatch) => {
 		dispatch(userAuthRequested())
 		try {

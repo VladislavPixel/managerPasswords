@@ -3,7 +3,7 @@ import Logo from "../../../images/header/logo.png"
 import FormComponent from "../../common/form"
 import { TextField } from "../../common/form"
 import { useDispatch, useSelector } from "react-redux"
-import { signUp } from "../../../store/user"
+import { signInWithNamePassword } from "../../../store/user"
 import { getUserError } from "../../../store/user"
 
 const LoginPage = () => {
@@ -22,7 +22,7 @@ const LoginPage = () => {
 		}
 	}
 	const handlerSubmit = (data) => {
-		dispatch(signUp(data))
+		dispatch(signInWithNamePassword(data))
 	}
 	return (
 		<main className="login-block">
