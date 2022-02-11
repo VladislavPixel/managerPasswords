@@ -41,6 +41,8 @@ const LoginPage = () => {
 						label="Пароль:"
 						placeholder="введите пароль..."
 						name="password"
+						type="password"
+						isPassword={true}
 					/>
 					<button className="form__btn" type="submit">Авторизоваться</button>
 				</FormComponent>

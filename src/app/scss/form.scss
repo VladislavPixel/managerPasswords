@@ -11,12 +11,37 @@
 		}
 	}
 	&__line-input{
+		position: relative;
 		input{
 			font-size: 18px;
 			padding: 5px 10px;
 			width: 100%;
 			border: 1px solid #306291;
 			border-radius: 4px;
+		}
+		&_password{
+			&:after{
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 40px;
+				height: 33px;
+				background: #306291;
+				border-radius: 0px 4px 4px 0px;
+			}
+			input{
+				padding: 5px 50px 5px 10px;
+			}
+		}
+		img{
+			position: absolute;
+			top: 0;
+			right: 5px;
+			width: 30px;
+			height: 33px;
+			z-index: 10;
+			cursor: pointer;
 		}
 	}
 	&__error-field{
