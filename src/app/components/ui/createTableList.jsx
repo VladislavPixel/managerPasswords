@@ -20,7 +20,7 @@ const CreateTableList = () => {
 	
 	// Filter createTable data если есть что-то в поиске
 	const newCreateTableData = (valueSearch === "" ? createTableData : createTableData.filter(people => {
-		if (people.Surname.includes(valueSearch)) return people
+		if (people.LastName.toLowerCase().includes(valueSearch.toLowerCase())) return people
 		return null
 	}))
 

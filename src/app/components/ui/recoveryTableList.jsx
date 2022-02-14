@@ -20,7 +20,7 @@ const RecoveryTableList = () => {
 
 	// Filter recoveryTable data если есть что-то в поиске
 	const newRecoveryTableData = (valueSearch === "" ? recoveryTableData : recoveryTableData.filter(people => {
-		if (people.Surname.includes(valueSearch)) return people
+		if (people.LastName.toLowerCase().includes(valueSearch.toLowerCase())) return people
 		return null
 	}))
 
